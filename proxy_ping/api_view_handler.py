@@ -29,8 +29,8 @@ API_BLUEPRINT_ADAPTER = blueprint_adapter.BlueprintAdapter()
 
 class ApiViewHandler(object):
 
-    def __init__(self, p_app, p_app_control, p_master_connector):
-        self._master_connector = p_master_connector
+    def __init__(self, p_app, p_pinger):
+        self._pinger = p_pinger
         self._logger = log_handling.get_logger(self.__class__.__name__)
 
         self._blueprint = flask.Blueprint(API_BLUEPRINT_NAME, proxy_ping.__name__)
@@ -39,19 +39,24 @@ class ApiViewHandler(object):
         API_BLUEPRINT_ADAPTER.check_view_methods()
         p_app.register_blueprint(self._blueprint)
 
-    @API_BLUEPRINT_ADAPTER.route_method(p_rule=constants.API_URL_STATUS, methods=["GET"])
-    def api_status(self):
+    @API_BLUEPRINT_ADAPTER.route_method(p_rule=constants.API_URL_PING, methods=["GET"])
+    def ping(self):
         request = flask.request
 
-        username = request.args.get(constants.API_URL_PARAM_USERNAME)
+        host = request.args.get(constants.API_URL_PARAM_HOST)
 
-        if username is None:
-            msg = _("username '{username}' not specified")
-            return flask.Response('{{ "{errortag}" : "{msg}" }}'.format(msg=msg, errortag=constants.JSON_ERROR),
+        if host is None:
+            msg = "parameter '{param_name}' not specified"
+            return flask.Response(msg.format(param_name=constants.API_URL_PARAM_HOST),
                                   status=constants.HTTP_STATUS_CODE_NOT_FOUND,
-                                  mimetype='application/json')
+                                  mimetype='application/txt')
 
-        # ........
+        delay = self._pinger.local_ping(p_host=host)
 
-        return flask.Response(json.dumps(user_status, cls=tools.ObjectEncoder), status=constants.HTTP_STATUS_CODE_OK,
-                              mimetype='application/json')
+        if delay is None:
+            return flask.Response("ERROR DURING PING",
+                                  status=constants.HTTP_STATUS_CODE_NOT_FOUND,
+                                  mimetype='application/txt')
+
+        return flask.Response(str(delay),
+                              mimetype='application/txt')

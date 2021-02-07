@@ -23,6 +23,7 @@ from proxy_ping import api_view_handler
 
 from python_base_app import base_app
 from python_base_app import configuration
+from python_base_app import pinger
 
 APP_NAME = 'ProxyPing'
 DIR_NAME = 'proxy-ping'
@@ -49,11 +50,15 @@ class App(base_app.BaseApp):
                                   p_dir_name=constants.DIR_NAME, p_languages=constants.LANGUAGES)
 
         self._status_server = None
+        self._pinger = None
 
     def prepare_configuration(self, p_configuration):
 
         status_server_section = status_server.StatusServerConfigModel()
         p_configuration.add_section(status_server_section)
+
+        pinger_section = pinger.PingerConfigModel()
+        p_configuration.add_section(pinger_section)
 
         self.app_config = AppConfigModel()
         p_configuration.add_section(self.app_config)
@@ -70,12 +75,21 @@ class App(base_app.BaseApp):
 
         status_server_config = self._config[status_server.SECTION_NAME]
 
-        if status_server_config.is_active():
-            self._status_server = status_server.StatusServer(
-                p_config=self._config[status_server.SECTION_NAME],
-                p_package_name=PACKAGE_NAME,
-                p_languages=constants.LANGUAGES
-            )
+        if not status_server_config.is_active():
+            msg = "Status server not fully configured -> exiting"
+            raise configuration.ConfigurationException(msg)
+
+        pinger_config = self._config[pinger.SECTION_NAME]
+        self._pinger = pinger.Pinger(p_config=pinger_config)
+
+
+        self._status_server = status_server.StatusServer(
+            p_config=self._config[status_server.SECTION_NAME],
+            p_package_name=PACKAGE_NAME,
+            p_languages=constants.LANGUAGES,
+            p_pinger=self._pinger
+        )
+
 
 
     def run_special_commands(self, p_arguments):

@@ -40,20 +40,21 @@ class StatusServer(base_web_server.BaseWebServer):
     def __init__(self,
                  p_config,
                  p_package_name,
+                 p_pinger,
                  p_languages=None):
         super(StatusServer, self).__init__(
             p_config=p_config,
             p_name="Web Server",
             p_package_name=p_package_name)
 
-        self._blueprint = None
         self._languages = p_languages
+        self._pinger = p_pinger
 
         if self._languages is None:
             self._languages = {'en': "English"}
 
-            self._api_view_handler = api_view_handler.ApiViewHandler(
-                p_app=self._app)
+        self._api_view_handler = api_view_handler.ApiViewHandler(
+            p_app=self._app, p_pinger=self._pinger)
 
     def destroy(self):
         super().destroy()
