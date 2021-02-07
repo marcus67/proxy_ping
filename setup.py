@@ -64,9 +64,9 @@ extended_setup_params = {
     #    ("etc/slave.config", "etc/proxy-ping/slave.config"),
     #    ("etc/master.config", "etc/proxy-ping/master.config"),
     #],
-    #"debian_templates": [
-    #    ("/etc/proxy-ping/master.config", "/etc/proxy-ping/proxy-ping.config")
-    #],
+    "debian_templates": [
+        ("/etc/proxy-ping/proxy-ping.config", "/etc/proxy-ping/proxy-ping.config")
+    ],
     #"build_pypi_package": True,
     #"publish_pypi_package": { 'release': ( 'https://upload.pypi.org/legacy/', 'PYPI_API_TOKEN' ),
     #                          'master': ( 'https://test.pypi.org/legacy/', 'TEST_PYPI_API_TOKEN') },
