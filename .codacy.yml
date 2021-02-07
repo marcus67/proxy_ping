@@ -1,0 +1,10 @@
+engines:
+  duplication:
+    enabled: true
+    exclude_paths:
+      - proxy_ping/test/**
+      - alembic/versions/**
+
+exclude_paths:
+  - 'proxy_ping/templates/**'
+  - 'proxy_ping/static/contrib/**'
