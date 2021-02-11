@@ -22,8 +22,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/usr/local/bin/run_little_brother.py --daemonize --pidfile=/run/proxy-ping/proxy-ping.pid --config=/etc/proxy-ping/proxy-ping.config --logdir=/var/log/proxy-ping
-ExecStop=/usr/local/bin/run_little_brother.py  --pidfile=/run/proxy-ping/proxy-ping.pid --kill
+ExecStart=/usr/local/bin/run_proxy_ping.py --daemonize --pidfile=/run/proxy-ping/proxy-ping.pid --config=/etc/proxy-ping/proxy-ping.config --logdir=/var/log/proxy-ping
+ExecStop=/usr/local/bin/run_proxy_ping.py  --pidfile=/run/proxy-ping/proxy-ping.pid --kill
 IgnoreSIGPIPE=false
 PIDFile=/run/proxy-ping/proxy-ping.pid
 RuntimeDirectory=proxy-ping
