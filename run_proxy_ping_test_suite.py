@@ -1,4 +1,4 @@
-#!/var/lib/little-brother/virtualenv/bin/python3
+#!/var/lib/proxy-ping/virtualenv/bin/python3
 # -*- coding: utf-8 -*-
 
 #    Copyright (C) 2021  Marcus Rickert
