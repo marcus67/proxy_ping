@@ -4,6 +4,8 @@
 
 # Ping Through Proxy Utility `ProxyPing`
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a2ebe69a3fb43df901746223725613f)](https://app.codacy.com/gh/marcus67/proxy_ping?utm_source=github.com&utm_medium=referral&utm_content=marcus67/proxy_ping&utm_campaign=Badge_Grade)
+
 ## Overview
 
 The utility `ProxyPing` is a simple tool to ping servers behind a firewall that will not let ICMP packages 
