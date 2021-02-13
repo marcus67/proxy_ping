@@ -22,7 +22,6 @@ import proxy_ping
 from some_flask_helpers import blueprint_adapter
 from proxy_ping import constants
 from python_base_app import log_handling
-from python_base_app import tools
 
 API_BLUEPRINT_NAME = "API"
 API_BLUEPRINT_ADAPTER = blueprint_adapter.BlueprintAdapter()
@@ -51,7 +50,7 @@ class ApiViewHandler(object):
                                   status=constants.HTTP_STATUS_CODE_NOT_FOUND,
                                   mimetype='application/txt')
 
-        delay = self._pinger.local_ping(p_host=host)
+        delay = self._pinger.ping(p_host=host)
 
         if delay is None:
             return flask.Response("ERROR DURING PING",
@@ -60,3 +59,6 @@ class ApiViewHandler(object):
 
         return flask.Response(str(delay),
                               mimetype='application/txt')
+
+    def destroy(self):
+        API_BLUEPRINT_ADAPTER.unassign_view_handler_instances()

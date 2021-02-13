@@ -24,12 +24,17 @@ import unittest
 from python_base_app import log_handling
 from python_base_app.test import base_test
 
+from proxy_ping.test import test_pytest
+from proxy_ping.test import test_api
+
 
 def add_test_cases(p_test_suite, p_config_filename=None):
     # base_test.add_tests_in_test_unit(
     #     p_test_suite=p_test_suite,
-    #     p_test_unit_class=test_process_info.TestProcessInfo, p_config_filename=p_config_filename)
-    pass
+    #     p_test_unit_class=test_pytest.TestPytest, p_config_filename=p_config_filename)
+    base_test.add_tests_in_test_unit(
+        p_test_suite=p_test_suite,
+        p_test_unit_class=test_api.TestApi, p_config_filename=p_config_filename)
 
 
 def main():

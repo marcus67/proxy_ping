@@ -80,7 +80,7 @@ class App(base_app.BaseApp):
             raise configuration.ConfigurationException(msg)
 
         pinger_config = self._config[pinger.SECTION_NAME]
-        self._pinger = pinger.Pinger(p_config=pinger_config)
+        self._pinger = pinger.Pinger(p_config=pinger_config, p_default_port=status_server_config.port)
 
 
         self._status_server = status_server.StatusServer(

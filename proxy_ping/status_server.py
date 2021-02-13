@@ -53,8 +53,8 @@ class StatusServer(base_web_server.BaseWebServer):
         if self._languages is None:
             self._languages = {'en': "English"}
 
-        self._api_view_handler = api_view_handler.ApiViewHandler(
-            p_app=self._app, p_pinger=self._pinger)
+        self._api_view_handler = api_view_handler.ApiViewHandler(p_app=self._app, p_pinger=self._pinger)
 
     def destroy(self):
+        self._api_view_handler.destroy()
         super().destroy()
