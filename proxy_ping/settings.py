@@ -19,7 +19,7 @@ settings = {
     "name": "proxy-ping",
     "url": "https://github.com/marcus67/proxy_ping",
     "version": "0.1.1",
-    "description": "Tool to ping hosts behind a proxy host.",
+    "description": "Tool to ping hosts behind a proxy blocking ICMP packages.",
     "author": "Marcus Rickert",
     "author_email": "proxy-ping@web.de",
 }
@@ -29,3 +29,11 @@ extended_settings = {
     "debian_package_revision": "1",
     "debian_package_architecture": "all",
 }
+
+RELEASE_BRANCH_NAME = "release"
+MASTER_BRANCH_NAME = "master"
+
+SOURCEFORGE_CHANNELS = [
+    MASTER_BRANCH_NAME,
+    RELEASE_BRANCH_NAME
+]

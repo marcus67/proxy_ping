@@ -33,11 +33,8 @@ setup_params = {
     # standard setup configuration
 
     "install_requires": install_requires,
-
     "packages": ['proxy_ping', 'proxy_ping.test'],
-
     "include_package_data": True,
-
     "scripts": [
         "run_proxy_ping.py",
         "run_proxy_ping_test_suite.py",
@@ -70,6 +67,9 @@ extended_setup_params = {
     #"publish_pypi_package": { 'release': ( 'https://upload.pypi.org/legacy/', 'PYPI_API_TOKEN' ),
     #                          'main': ( 'https://test.pypi.org/legacy/', 'TEST_PYPI_API_TOKEN') },
     #"generate_generic_install": True,
+    "analyze": True,
+    "analyze_extra_exclusions": "vagrant/**",
+    "script_timeout": 30,
 }
 
 setup_params.update(proxy_ping.settings.settings)

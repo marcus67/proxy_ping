@@ -15,16 +15,16 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import json
 import flask
 
 import proxy_ping
-from some_flask_helpers import blueprint_adapter
 from proxy_ping import constants
 from python_base_app import log_handling
+from some_flask_helpers import blueprint_adapter
 
 API_BLUEPRINT_NAME = "API"
 API_BLUEPRINT_ADAPTER = blueprint_adapter.BlueprintAdapter()
+
 
 class ApiViewHandler(object):
 
@@ -60,5 +60,6 @@ class ApiViewHandler(object):
         return flask.Response(str(delay),
                               mimetype='application/txt')
 
-    def destroy(self):
+    @classmethod
+    def destroy(cls):
         API_BLUEPRINT_ADAPTER.unassign_view_handler_instances()
