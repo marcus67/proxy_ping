@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#    Copyright (C) 2019  Marcus Rickert
+#    Copyright (C) 2021-2022  Marcus Rickert
 #
 #    See https://github.com/marcus67/proxy_ping
 #
