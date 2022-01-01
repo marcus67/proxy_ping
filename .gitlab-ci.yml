@@ -25,6 +25,7 @@ stages:
   - build
   - install_and_check
   - analyze
+  - deploy
   
 build_debian:
   image: accso/docker-python-app:latest
@@ -62,4 +63,13 @@ analyze:
     - PYTHONPATH=contrib/python_base_app python3 ci_toolbox.py --execute-stage TEARDOWN
   variables:
     # Suppress automatic checkout for all sub modules
+    GIT_SUBMODULE_STRATEGY: recursive
+
+docker:
+  image: marcusrickert/docker-docker-ci:release-0.9.1
+  stage: deploy
+  script:
+  - PYTHONPATH=contrib/python_base_app python3 ci_toolbox.py --execute-stage BUILD_DOCKER_IMAGES --use-dev-dir=.
+  variables:
+    # Activate automatic checkout for all sub modules
     GIT_SUBMODULE_STRATEGY: recursive

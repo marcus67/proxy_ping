@@ -57,6 +57,18 @@ jobs:
       - run: git submodule sync
       - run: git submodule update --init
       - run: PYTHONPATH=contrib/python_base_app python3 ci_toolbox.py --execute-stage PUBLISH-PACKAGE
+  docker:
+    docker:
+      - image: marcusrickert/docker-docker-ci:release-0.9.1
+    steps:
+      - checkout
+      - attach_workspace:
+          at: debian
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run: PYTHONPATH=contrib/python_base_app python3 ci_toolbox.py --execute-stage BUILD_DOCKER_IMAGES
 
 workflows:
     version: 2
@@ -69,7 +81,7 @@ workflows:
             filters:
               branches:
                 only:
-                  - main
+                  - master
                   - release
         - docker:
             requires:

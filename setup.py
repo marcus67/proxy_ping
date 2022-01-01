@@ -45,6 +45,11 @@ setup_params = {
 extended_setup_params = {
     # additional setup configuration used by CI stages
 
+    "docker_registry_user": "marcusrickert",
+    # Docker image contexts to be built. The second entry of the tuple denotes if the resulting image is to be uploaded
+    "docker_contexts": [('proxy-ping', True)
+                        ],
+
     # technical name used for e.g. directories, PIP-package, and users
     "create_user": True,
     "create_group": True,
@@ -54,9 +59,9 @@ extended_setup_params = {
     #"deploy_sudoers_file": True,
     #"deploy_apparmor_file": True,
     "contributing_setups": ["python_base_app", "some_flask_helpers"],
-    "publish_debian_package": ["main", "release"],
-    #"publish_docker_images": ["main", "release"],
-    #"publish_latest_docker_image": "release",
+    "publish_debian_package": proxy_ping.settings.SOURCEFORGE_CHANNELS,
+    "publish_docker_images": proxy_ping.settings.DOCKER_CHANNELS,
+    "publish_latest_docker_image": proxy_ping.settings.RELEASE_BRANCH_NAME,
     "debian_extra_files": [
         ("etc/proxy-ping.template.config", "etc/proxy-ping/proxy-ping.template.config"),
     ],

@@ -87,9 +87,8 @@ successfully start up provided that the default port 6666 is available on the ho
 
 ### Configuring the Application (Mostly Optional)
 
-The application is configured using the file [`/etc/proxy-ping/proxy-ping.config`](etc/proxy-ping.template.config).
+The application is configured using the file [`/etc/proxy-ping.config`](etc/proxy-ping.template.config).
 The default values should work for most contexts. This will bring up the server on port 6666.
-
 
 ## Credits
 

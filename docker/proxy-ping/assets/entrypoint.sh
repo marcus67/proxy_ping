@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #    Copyright (C) 2021-2022  Marcus Rickert
 #
 #    See https://github.com/marcus67/proxy_ping
@@ -16,27 +17,6 @@
 #    with this program; if not, write to the Free Software Foundation, Inc.,
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#[ProxyPing]
-# Logging level of the application. Default: INFO
-# Allowed values: DEBUG, INFO, WARNING, ERROR
-#log_level=DEBUG
-
-# Run the application in debugging mode. If active any exception will print a
-# stack trace and terminate the application. Do not activate in "production" mode.
-# Default: False
-#debug_mode=True
-
-#[StatusServer]
-# Use this setting to set the port reacting to the API calls.
-# Default: 6666
-#port=5555
-
-#[Pinger]
-# Path of the "ping" utility.
-# Default: /bin/ping
-#ping_command = /SOME/OTHER/PATH/PING
-
-# Regular expression to extract the round trip time from a ping call. Use parentheses to mark the actual time duration
-# in milliseconds.
-# Default: rtt min/avg/max/mdev = [\d\.]+/([\d\.]+)/[\d\.]+/[\d\.]+ ms
-#ping_result_regex = SOME OTHER ELABORATE EXPRESSION
+echo "Starting Proxy-Ping..."
+export StatusServer__port=${PORT:-6666}
+run_proxy_ping.py --config /etc/proxy-ping.config --loglevel ${LOGLEVEL:-INFO}
