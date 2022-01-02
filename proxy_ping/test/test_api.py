@@ -43,6 +43,8 @@ class TestApi(base_test.BaseTestCase):
 
         return server
 
+
+    @base_test.skip_if_env("NO_PING")
     def test_api_one_hop_ping_success(self):
 
         default_server = None
@@ -67,4 +69,3 @@ class TestApi(base_test.BaseTestCase):
             if default_server is not None:
                 default_server.stop_server()
                 default_server.destroy()
-
