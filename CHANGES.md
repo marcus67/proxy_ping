@@ -6,7 +6,7 @@ This document lists all changes of `ProxyPing` with the most recent changes at t
 
 ## Version 0.1.2 Revision 2 (January 1st, 2022)
 
-* Upgrade python_base_app to version 0.2.26
+* Upgrade python_base_app to version 0.2.27
 * Add missing PIP packages
 * Activate code analysis in SonarQube
 * Upgrade some_flask_helpers to version 0.2.2
