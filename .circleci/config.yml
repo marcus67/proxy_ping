@@ -42,11 +42,11 @@ jobs:
       - store_artifacts:
           path: htmlcov
       - store_artifacts:
-          path: debian/proxy-ping_0.1.1_2.deb
+          path: debian/proxy-ping_0.1.1_3.deb
       - persist_to_workspace:
           root: debian
           paths:
-            - proxy-ping_0.1.1_2.deb
+            - proxy-ping_0.1.1_3.deb
   deploy:
     docker:
       - image: accso/docker-python-app:latest
@@ -81,7 +81,7 @@ workflows:
             filters:
               branches:
                 only:
-                  - master
+                  - main
                   - release
         - docker:
             requires:

@@ -31,7 +31,7 @@ extended_settings = {
 }
 
 RELEASE_BRANCH_NAME = "release"
-MASTER_BRANCH_NAME = "master"
+MASTER_BRANCH_NAME = "main"
 
 SOURCEFORGE_CHANNELS = [
     MASTER_BRANCH_NAME,

@@ -14,6 +14,7 @@ This document lists all changes of `ProxyPing` with the most recent changes at t
 * Add Debian dependency to `inetutils-ping`
 * Add CODE_OF_CONDUCT.md and CONTRIBUTING.md
 * Remove "Under Construction" sign
+* Configure "main" as master branch name
 
 ## Version 0.1.1 Revision 1 (February 6th, 2021)
 
