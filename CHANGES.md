@@ -4,7 +4,7 @@
 
 This document lists all changes of `ProxyPing` with the most recent changes at the top.
 
-## Version 0.1.2 Revision 2 (January 1st, 2022)
+## Version 0.1.2 Revision 3 (January 1st, 2022)
 
 * Upgrade python_base_app to version 0.2.27
 * Add missing PIP packages
@@ -12,6 +12,7 @@ This document lists all changes of `ProxyPing` with the most recent changes at t
 * Upgrade some_flask_helpers to version 0.2.2
 * Initial setup for docker-image 
 * Add Debian dependency to `inetutils-ping`
+* Add CODE_OF_CONDUCT.md and CONTRIBUTING.md
 
 ## Version 0.1.1 Revision 1 (February 6th, 2021)
 
