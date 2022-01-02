@@ -1,5 +1,3 @@
-![UnderConstruction](doc/logo_under_construction_sign_wide.png)
-
 ![ProxyPingLogo](doc/proxy_ping_logo_256x256.png)
 
 # Ping Through Proxy Utility `ProxyPing`
