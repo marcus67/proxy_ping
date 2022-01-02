@@ -18,5 +18,4 @@
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 echo "Starting Proxy-Ping..."
-export StatusServer__port=${PORT:-6666}
 run_proxy_ping.py --config /etc/proxy-ping.config --loglevel ${LOGLEVEL:-INFO}

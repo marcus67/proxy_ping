@@ -26,7 +26,7 @@ settings = {
 
 extended_settings = {
     "display_url": "github.com/marcus67/proxy_ping",
-    "debian_package_revision": "1",
+    "debian_package_revision": "2",
     "debian_package_architecture": "all",
 }
 

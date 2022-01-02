@@ -11,6 +11,7 @@ This document lists all changes of `ProxyPing` with the most recent changes at t
 * Activate code analysis in SonarQube
 * Upgrade some_flask_helpers to version 0.2.2
 * Initial setup for docker-image 
+* Add Debian dependency to `inetutils-ping`
 
 ## Version 0.1.1 Revision 1 (February 6th, 2021)
 
