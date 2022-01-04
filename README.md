@@ -68,7 +68,7 @@ on your system.
 
 The application is available as a Debian package 
 from the [`release`](https://sourceforge.net/projects/proxy-ping/files/release/) directory at SourceForge. 
-The latest build is available from the [`master`](https://sourceforge.net/projects/proxy-ping/files/master/) 
+The latest build is available from the [`main`](https://sourceforge.net/projects/proxy-ping/files/main/) 
 directory. Install it as you would install any other Debian package with
 
     dpkg -i PACKAGE.deb

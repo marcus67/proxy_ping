@@ -53,10 +53,7 @@ extended_setup_params = {
     # technical name used for e.g. directories, PIP-package, and users
     "create_user": True,
     "create_group": True,
-    #"user_group_mappings": [("proxy-ping", "audio")],
     "deploy_systemd_service": True,
-    # "deploy_tmpfile_conf": True,
-    #"deploy_sudoers_file": True,
     #"deploy_apparmor_file": True,
     "contributing_setups": ["python_base_app", "some_flask_helpers"],
     "publish_debian_package": proxy_ping.settings.SOURCEFORGE_CHANNELS,
@@ -71,9 +68,9 @@ extended_setup_params = {
     "debian_dependencies": [
         "inetutils-ping"
     ],
-    #"build_pypi_package": True,
-    #"publish_pypi_package": { 'release': ( 'https://upload.pypi.org/legacy/', 'PYPI_API_TOKEN' ),
-    #                          'main': ( 'https://test.pypi.org/legacy/', 'TEST_PYPI_API_TOKEN') },
+    "build_pypi_package": True,
+    "publish_pypi_package": { 'release': ( 'https://upload.pypi.org/legacy/', 'PYPI_API_TOKEN' ),
+                              'main': ( 'https://test.pypi.org/legacy/', 'TEST_PYPI_API_TOKEN') },
     #"generate_generic_install": True,
     "analyze": True,
     "analyze_extra_exclusions": "vagrant/**",

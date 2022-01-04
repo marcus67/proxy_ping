@@ -4,6 +4,11 @@
 
 This document lists all changes of `ProxyPing` with the most recent changes at the top.
 
+## Version 0.1.2 Revision 4 (January 4th, 2022)
+
+* Correct SourceForge path
+* Activate deployment of PyPi package
+
 ## Version 0.1.2 Revision 3 (January 1st, 2022)
 
 * Upgrade python_base_app to version 0.2.28

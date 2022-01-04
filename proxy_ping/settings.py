@@ -18,7 +18,7 @@
 settings = {
     "name": "proxy-ping",
     "url": "https://github.com/marcus67/proxy_ping",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Tool to ping hosts behind a proxy blocking ICMP packages.",
     "author": "Marcus Rickert",
     "author_email": "proxy-ping@web.de",
@@ -26,7 +26,7 @@ settings = {
 
 extended_settings = {
     "display_url": "github.com/marcus67/proxy_ping",
-    "debian_package_revision": "3",
+    "debian_package_revision": "4",
     "debian_package_architecture": "all",
 }
 
