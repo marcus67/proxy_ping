@@ -8,6 +8,7 @@ This document lists all changes of `ProxyPing` with the most recent changes at t
 
 * Correct SourceForge path
 * Activate deployment of PyPi package
+* Add missing run_proxy_ping_test_suite_no_venv.py
 
 ## Version 0.1.2 Revision 3 (January 1st, 2022)
 
