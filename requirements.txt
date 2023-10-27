@@ -7,3 +7,4 @@ Flask-WTF>=0.14.3
 pytest>=6.2.2
 #urllib3>=1.26.2
 secure>=0.3.0
+werkzeug>=3.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
